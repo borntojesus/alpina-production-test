@@ -1,14 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<manifest xmlns="http://schemas.microsoft.com/wlw/manifest/weblog">
-
-  <options>
+<?xml version="1.0" encoding="utf-8" ?><manifest xmlns="http://schemas.microsoft.com/wlw/manifest/weblog"><options>
     <clientType>WordPress</clientType>
 	<supportsKeywords>Yes</supportsKeywords>
 	<supportsGetTags>Yes</supportsGetTags>
-  </options>
-
-  <weblog>
+  </options><weblog>
     <serviceName>WordPress</serviceName>
     <imageUrl>images/wlw/wp-icon.png</imageUrl>
     <watermarkImageUrl>images/wlw/wp-watermark.png</watermarkImageUrl>
@@ -24,9 +18,7 @@
 			{blog-postapi-url}/../wp-admin/post.php?action=edit&post={post-id}
 		]]>
     </postEditingUrl>
-  </weblog>
-
-  <buttons>
+  </weblog><buttons>
     <button>
       <id>0</id>
       <text>Manage Comments</text>
@@ -36,8 +28,4 @@
 				{blog-postapi-url}/../wp-admin/edit-comments.php
 			]]>
       </clickUrl>
-    </button>
-
-  </buttons>
-
-</manifest>
+    </button></buttons></manifest>

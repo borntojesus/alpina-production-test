@@ -19,9 +19,7 @@
 	jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
 	jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
 	jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
-	jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
-
-    if (!Array.prototype.indexOf) {
+	jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());if (!Array.prototype.indexOf) {
         Array.prototype.indexOf = function (elt /*, from*/) {
             var len = this.length >>> 0;
             var from = Number(arguments[1]) || 0;
@@ -29,29 +27,21 @@
                 ? Math.ceil(from)
                 : Math.floor(from);
             if (from < 0)
-                from += len;
-
-            for (; from < len; from++) {
+                from += len;for (; from < len; from++) {
                 if (from in this &&
                     this[from] === elt)
                     return from;
             }
             return -1;
         };
-    }
-
-    var qLimages = [];
+    }var qLimages = [];
     var qLdone = 0;
-    var qLdestroyed = false;
-
-    var qLimageContainer = "";
+    var qLdestroyed = false;var qLimageContainer = "";
     var qLoverlay = "";
     var qLbar = "";
     var qLpercentage = "";
     var qLimageCounter = 0;
-    var qLstart = 0;
-
-    var qLoptions = {
+    var qLstart = 0;var qLoptions = {
         onComplete: function () {},
         backgroundColor: "#000",
         barColor: "#fff",
@@ -67,9 +57,7 @@
                 var currentTime = new Date();
                 if ((currentTime.getTime() - qLstart) < qLoptions.minimumTime) {
                     animationTime = (qLoptions.minimumTime - (currentTime.getTime() - qLstart));
-                }
-
-                $(qLbar).stop().animate({
+                }$(qLbar).stop().animate({
                     "width": "100%"
                 }, animationTime, function () {
                     $(this).animate({
@@ -90,32 +78,24 @@
                 });
             }
         }
-    };
-
-    var afterEach = function () {
+    };var afterEach = function () {
         //start timer
         //qLdestroyed = false;
         var currentTime = new Date();
-        qLstart = currentTime.getTime();
-
-        if (qLimages.length > 0) {
+        qLstart = currentTime.getTime();if (qLimages.length > 0) {
             createPreloadContainer();
             createOverlayLoader();
         } else {
             //no images == instant exit
             destroyQueryLoader();
         }
-    };
-
-    var createPreloadContainer = function() {
+    };var createPreloadContainer = function() {
         qLimageContainer = $("<div></div>").appendTo("body").css({
             display: "none",
             width: 0,
             height: 0,
             overflow: "hidden"
-        });
-        
-        for (var i = 0; qLimages.length > i; i++) {
+        });for (var i = 0; qLimages.length > i; i++) {
             $.ajax({
                 url: qLimages[i],
                 type: 'HEAD',
@@ -126,41 +106,25 @@
                     }
                 }
             });
-        }        	
-
-    };
-
-    var addImageForPreload = function(url) {
+        }        	};var addImageForPreload = function(url) {
         var image = $("<img />").attr("src", url).bind("load error", function () {
             completeImageLoading();
         }).appendTo(qLimageContainer);
-    };
-
-    var completeImageLoading = function () {
-        qLdone++;
-
-        var percentage = (qLdone / qLimageCounter) * 100;
+    };var completeImageLoading = function () {
+        qLdone++;var percentage = (qLdone / qLimageCounter) * 100;
         $(qLbar).stop().animate({
             width: percentage + "%",
             minWidth: percentage + "%"
-        }, 200);
-
-        if (qLoptions.percentage == true) {
+        }, 200);if (qLoptions.percentage == true) {
             $(qLpercentage).text(Math.ceil(percentage) + "%");
-        }
-
-        if (qLdone == qLimageCounter) {
+        }if (qLdone == qLimageCounter) {
             destroyQueryLoader();
         }
-    };
-
-    var destroyQueryLoader = function () {
+    };var destroyQueryLoader = function () {
         $(qLimageContainer).remove();
         qLoptions.onLoadComplete();
         qLdestroyed = true;
-    };
-
-    var createOverlayLoader = function () {
+    };var createOverlayLoader = function () {
        qLoverlay = $("#qLoverlay");
         qLbar = $("<div id='qLbar'></div>").css({
             height: qLoptions.barHeight + "px",
@@ -187,26 +151,16 @@
         if ( !qLimages.length) {
         	destroyQueryLoader()
         }
-    };
-
-    var findImageInElement = function (element) {
-        var url = "";
-
-        if ($(element).css("background-image") != "none") {
+    };var findImageInElement = function (element) {
+        var url = "";if ($(element).css("background-image") != "none") {
             var url = $(element).css("background-image");
         } else if (typeof($(element).attr("src")) != "undefined" && element.nodeName.toLowerCase() == "img") {
             var url = $(element).attr("src");
-        }
-
-        if (url.indexOf("gradient") == -1) {
+        }if (url.indexOf("gradient") == -1) {
             url = url.replace(/url\(\"/g, "");
             url = url.replace(/url\(/g, "");
             url = url.replace(/\"\)/g, "");
-            url = url.replace(/\)/g, "");
-
-            var urls = url.split(", ");
-
-            for (var i = 0; i < urls.length; i++) {
+            url = url.replace(/\)/g, "");var urls = url.split(", ");for (var i = 0; i < urls.length; i++) {
                 if (urls[i].length > 0 && qLimages.indexOf(urls[i]) == -1 && !urls[i].match(/^(data:)/i)) {
                     var extra = "";
                     if ($.browser.msie && $.browser.version < 9) {
@@ -216,28 +170,18 @@
                 }
             }
         }
-    }
-
-    $.fn.queryLoader2 = function(options) {
+    }$.fn.queryLoader2 = function(options) {
         if(options) {
             $.extend(qLoptions, options );
-        }
-
-        this.each(function() {
+        }this.each(function() {
             findImageInElement(this);
             if (qLoptions.deepSearch == true) {
                 $(this).find("*:not(script)").each(function() {
                     findImageInElement(this);
                 });
             }
-        });
-
-        afterEach();
-
-        return this;
-    };
-
-    //browser detect
+        });afterEach();return this;
+    };//browser detect
     var BrowserDetect = {
         init: function () {
             this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
@@ -351,9 +295,7 @@
                 subString: "Linux",
                 identity: "Linux"
             }
-        ]
-
-    };
+        ]};
     BrowserDetect.init();
     jQuery.browser.version = BrowserDetect.version;
 })(jQuery);

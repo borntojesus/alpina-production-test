@@ -8,9 +8,7 @@
 		url('../fonts/entypo.svg#entypo') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
+}/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'entypo';
 	content: attr(data-icon);
@@ -21,9 +19,7 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
+}/* Use the following CSS code if you want to have a class per icon */
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
@@ -900,9 +896,7 @@ you can use the generic selector below, but it's slower:
 		url('../fonts/icomoon.svg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
+}/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'icomoon';
 	content: attr(data-icon);
@@ -913,9 +907,7 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
+}/* Use the following CSS code if you want to have a class per icon */
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
@@ -2283,9 +2275,7 @@ you can use the generic selector below, but it's slower:
 }
 .icomoon-IcoMoon:before {
 	content: "\e1c2";
-}
-
-@font-face {
+}@font-face {
 	font-family: 'mukam';
 	src:url('../fonts/mukam.eot');
 	src:url('../fonts/mukam-.eot#iefix') format('embedded-opentype'),
@@ -2294,9 +2284,7 @@ you can use the generic selector below, but it's slower:
 		url('../fonts/mukam.svg#mukam') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
+}/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'mukam';
 	content: attr(data-icon);
@@ -2307,9 +2295,7 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
+}/* Use the following CSS code if you want to have a class per icon */
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
